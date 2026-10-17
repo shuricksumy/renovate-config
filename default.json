@@ -1,0 +1,24 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Shared Renovate defaults for shuricksumy's repositories",
+  "extends": [
+    "config:recommended",
+    "helpers:pinGitHubActionDigests",
+    "docker:pinDigests"
+  ],
+  "packageRules": [
+    {
+      "description": "GitHub Actions: patch bumps and digest pins merge themselves when CI is green",
+      "matchManagers": ["github-actions"],
+      "matchUpdateTypes": ["patch", "digest", "pin", "pinDigest"],
+      "automerge": true
+    },
+    {
+      "description": "Container images: digest refreshes (OS security rebuilds) and pins merge themselves when CI is green",
+      "matchManagers": ["dockerfile", "docker-compose"],
+      "matchUpdateTypes": ["digest", "pin", "pinDigest"],
+      "automerge": true
+    }
+  ],
+  "platformAutomerge": true
+}
