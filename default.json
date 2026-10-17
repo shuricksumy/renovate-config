@@ -6,6 +6,7 @@
     "helpers:pinGitHubActionDigests",
     "docker:pinDigests"
   ],
+  "dependencyDashboard": false,
   "packageRules": [
     {
       "description": "GitHub Actions: patch bumps and digest pins merge themselves when CI is green",

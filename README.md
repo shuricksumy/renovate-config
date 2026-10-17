@@ -21,6 +21,9 @@ in that repository's own file; they are applied after the preset.
 - `config:recommended`, plus digest pins for GitHub Actions and for images in Dockerfiles
   (compose files keep plain tags: they are mostly examples people copy).
 - Own images (`ghcr.io/shuricksumy/**`) are ignored: the repositories build them.
+- No Dependency Dashboard issue; failed updates show in the Mend portal
+  (https://developer.mend.io/github/shuricksumy). A repository can turn it back on with
+  `"dependencyDashboard": true`.
 - Merges by itself, once the required checks pass: GitHub Actions patch bumps and pins, image
   digest refreshes and pins. Everything else waits for a review.
 
