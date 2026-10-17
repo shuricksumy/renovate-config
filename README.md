@@ -18,7 +18,9 @@ in that repository's own file; they are applied after the preset.
 
 ## What `default.json` does
 
-- `config:recommended`, plus digest pins for GitHub Actions and container images.
+- `config:recommended`, plus digest pins for GitHub Actions and for images in Dockerfiles
+  (compose files keep plain tags: they are mostly examples people copy).
+- Own images (`ghcr.io/shuricksumy/**`) are ignored: the repositories build them.
 - Merges by itself, once the required checks pass: GitHub Actions patch bumps and pins, image
   digest refreshes and pins. Everything else waits for a review.
 

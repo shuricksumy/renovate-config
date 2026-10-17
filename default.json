@@ -9,15 +9,43 @@
   "packageRules": [
     {
       "description": "GitHub Actions: patch bumps and digest pins merge themselves when CI is green",
-      "matchManagers": ["github-actions"],
-      "matchUpdateTypes": ["patch", "digest", "pin", "pinDigest"],
+      "matchManagers": [
+        "github-actions"
+      ],
+      "matchUpdateTypes": [
+        "patch",
+        "digest",
+        "pin",
+        "pinDigest"
+      ],
       "automerge": true
     },
     {
       "description": "Container images: digest refreshes (OS security rebuilds) and pins merge themselves when CI is green",
-      "matchManagers": ["dockerfile", "docker-compose"],
-      "matchUpdateTypes": ["digest", "pin", "pinDigest"],
+      "matchManagers": [
+        "dockerfile",
+        "docker-compose"
+      ],
+      "matchUpdateTypes": [
+        "digest",
+        "pin",
+        "pinDigest"
+      ],
       "automerge": true
+    },
+    {
+      "description": "Compose files are mostly examples people copy: keep plain tags there, pin digests only in Dockerfiles",
+      "matchManagers": [
+        "docker-compose"
+      ],
+      "pinDigests": false
+    },
+    {
+      "description": "Own images are built by these repositories; a digest pin on them would open a PR after every build",
+      "matchPackageNames": [
+        "ghcr.io/shuricksumy/**"
+      ],
+      "enabled": false
     }
   ],
   "platformAutomerge": true
